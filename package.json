@@ -1,0 +1,16 @@
+{
+  "name": "fasttube",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FastTube lightweight media information interface",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "vercel": "^41.6.0"
+  }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="FastTube — a lightweight media information and authorized-download interface.">
+  <title>FastTube — Your Media. Your Quality. Your Choice.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="FastTube home"><span class="brand-mark"><i data-lucide="play"></i></span><span>fast<span>tube</span></span></a>
+    <nav><a class="active" href="#home">Home</a><a href="#how">How it works</a><a href="#about">About</a></nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i data-lucide="moon"></i></button>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span> SIMPLE. FAST. TRANSPARENT.</div>
+      <h1>Your media.<br><span>Your choice.</span></h1>
+      <p class="hero-copy">Get media details and explore supported formats in one clean workspace.</p>
+
+      <section class="workspace">
+        <div class="workspace-head">
+          <div><div class="section-kicker">MEDIA WORKSPACE</div><h2>Start with a link</h2></div>
+          <span class="secure-label"><i data-lucide="shield-check"></i> Privacy-first</span>
+        </div>
+        <form id="analyzeForm" class="url-form">
+          <div class="url-input-wrap"><i data-lucide="link-2"></i><input id="videoUrl" type="url" placeholder="Paste a YouTube video URL here..." autocomplete="url" required><button type="button" class="paste-btn" id="pasteBtn">Paste</button></div>
+          <button class="primary-btn" id="analyzeBtn" type="submit"><span>Analyze link</span><i data-lucide="arrow-right"></i></button>
+        </form>
+        <div class="form-hint"><i data-lucide="info"></i> Public video details can be previewed. Downloading is available only for media sources that explicitly authorize it.</div>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+
+        <section id="mediaCard" class="media-card hidden">
+          <div class="media-preview"><img id="thumbnail" alt="Media thumbnail"><span class="preview-tag">LINK PREVIEW</span></div>
+          <div class="media-details"><div class="section-kicker">MEDIA INFORMATION</div><h3 id="mediaTitle"></h3><p id="mediaChannel"></p><div class="meta-row"><span><i data-lucide="clock-3"></i><b id="mediaDuration">Not provided</b></span><span><i data-lucide="check-circle-2"></i><b id="sourceStatus">Details available</b></span></div></div>
+        </section>
+
+        <div class="download-grid">
+          <article class="download-card">
+            <div class="download-icon video-icon"><i data-lucide="video"></i></div>
+            <div class="card-heading"><div><div class="section-kicker">OPTION 01</div><h3>Video download</h3></div><span class="format-pill">MP4 / WEBM</span></div>
+            <p>Choose a resolution from the formats provided by an authorized media source.</p>
+            <label for="videoQuality">Video quality</label>
+            <select id="videoQuality" disabled><option>No authorized formats loaded</option></select>
+            <div class="download-meta"><span>Resolution</span><b id="videoResolution">—</b></div>
+            <button class="download-btn" id="videoDownload" disabled><i data-lucide="download"></i> Download video</button>
+          </article>
+          <article class="download-card">
+            <div class="download-icon audio-icon"><i data-lucide="audio-lines"></i></div>
+            <div class="card-heading"><div><div class="section-kicker">OPTION 02</div><h3>Audio download</h3></div><span class="format-pill">MP3 / M4A</span></div>
+            <p>Select an audio format and bitrate supported by the authorized source.</p>
+            <label for="audioQuality">Audio quality</label>
+            <select id="audioQuality" disabled><option>No authorized formats loaded</option></select>
+            <div class="download-meta"><span>Audio format</span><b id="audioFormat">—</b></div>
+            <button class="download-btn" id="audioDownload" disabled><i data-lucide="download"></i> Download audio</button>
+          </article>
+        </div>
+        <div class="availability-note"><i data-lucide="lock-keyhole"></i><div><b>Why are download options unavailable?</b><span>This starter project does not bypass YouTube restrictions or extract protected streams. Add a provider that has explicitly authorized downloads, then connect it through the documented server-side adapter.</span></div></div>
+      </section>
+      <div class="trust-row"><span><i data-lucide="zap"></i> Lightweight interface</span><span><i data-lucide="shield-check"></i> No fake download links</span><span><i data-lucide="smartphone"></i> Works on mobile</span></div>
+    </section>
+
+    <section class="how-section" id="how"><div class="section-kicker">A SIMPLE WORKFLOW</div><h2>Three steps. No confusion.</h2><div class="steps"><article><span>01</span><i data-lucide="clipboard-paste"></i><h3>Paste your link</h3><p>Enter a supported media URL in the workspace above.</p></article><article><span>02</span><i data-lucide="scan-search"></i><h3>Check availability</h3><p>FastTube displays metadata and only source-provided options.</p></article><article><span>03</span><i data-lucide="download"></i><h3>Download when allowed</h3><p>Download media only when the source grants permission.</p></article></div></section>
+    <section class="about-section" id="about"><div><div class="section-kicker">ABOUT FASTTUBE</div><h2>Honest by design.</h2></div><p>FastTube is a starter application for learning full-stack web development. It separates the user interface from server-side media integrations, so an authorized provider can be added later without rebuilding the entire experience.</p></section>
+  </main>
+  <footer><a class="brand footer-brand" href="/"><span class="brand-mark"><i data-lucide="play"></i></span><span>fast<span>tube</span></span></a><span>Your Media. Your Quality. Your Choice.</span><span>© <span id="year"></span> FastTube</span></footer>
+  <div id="toast" class="toast" role="alert"></div>
+  <script src="/js/script.js"></script>
+</body>
+</html>
